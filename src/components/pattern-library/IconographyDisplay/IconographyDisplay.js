@@ -22,7 +22,7 @@ const IconographyDisplay = ({ children }) => {
   return (
     <Grid container direction="row" justify="flex-start" alignItems="stretch" spacing={2}>
       {
-        Object.keys(Images).map(key => {
+        Object.keys(Images).filter(key => key !== '__esModule').map(key => {
           const ImageComponent = Images[key]
           const notes = getNotes(key)
 

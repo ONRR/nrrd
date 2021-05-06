@@ -1,9 +1,10 @@
-FROM node:12.13.0
+FROM node:14.16.0
 EXPOSE 8000
 RUN npm install --quiet -g gatsby-cli
 WORKDIR /app
-COPY ./package.json .
-RUN npm install
+COPY ./package.json ./package-lock.json ./
+RUN npm i --package-lock-only
+RUN npm ci
 COPY . .
 RUN gatsby clean
 CMD ["gatsby", "develop", "-H", "0.0.0.0" ]

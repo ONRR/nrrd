@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import slugify from 'slugify'
 import currencyFormatter from 'currency-formatter'
 
-import ExcelJs from 'exceljs'
+// import ExcelJs from 'exceljs'
 import { saveAs } from 'file-saver'
 
 export const destructuringSwap = (list, iA, iB) => {
@@ -43,7 +43,7 @@ export const formatToCommaInt = value => {
 }
 
 export const downloadWorkbook = (type, fileName, sheetName, cols, rows) => {
-  const workbook = new ExcelJs.Workbook()
+  /*const workbook = new ExcelJs.Workbook()
   const worksheet = workbook.addWorksheet(sheetName)
   worksheet.columns = cols.map(col => ({ key: col.name, header: col.title, width: 20 }))
 
@@ -69,7 +69,7 @@ export const downloadWorkbook = (type, fileName, sheetName, cols, rows) => {
       saveAs(new Blob([result], { type: 'text/plain;charset=utf-8' }), `${ fileName }.csv`)
     })
     break
-  }
+  }*/
 }
 
 export const fetchDataFilterFromUrl = () => {

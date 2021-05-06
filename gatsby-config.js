@@ -35,6 +35,7 @@ const config = {
       email: 'nrrd@onrr.gov'
     },
   },
+  flags: { PRESERVE_WEBPACK_CACHE: false },
   plugins: [
     'gatsby-transformer-react-docgen',
     {
@@ -69,7 +70,6 @@ const config = {
         // }
       }
     },
-    'gatsby-theme-apollo',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-mdx',
@@ -109,15 +109,9 @@ const config = {
         path: `${ __dirname }/src/components`
       }
     },
+    `gatsby-plugin-image`,
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-sharp',
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
-      },
-    },
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -160,14 +154,6 @@ const config = {
       }
     },
     {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-        workboxConfig: {
-          maximumFileSizeToCacheInBytes: 20000000
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: process.env.GTM_ID,
@@ -203,6 +189,14 @@ const config = {
       }
     },
     'gatsby-plugin-use-query-params',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          maximumFileSizeToCacheInBytes: 20000000
+        },
+      },
+    },
     'gatsby-plugin-meta-redirect' // make sure to put last in the array
   ]
 }
